@@ -14,17 +14,14 @@ const Week: React.FC<WeekProps> = ({ weekdays, index, month }) => {
     const firstDayIndex = weekdays.findIndex((day) => day < 7);
     return (
       <div className={styles.week}>
-        {weekdays.map((day, index) =>
-          index < firstDayIndex ? (
-            <div key={day} className={`${styles.dayNumber} ${styles.muted}`}>
-              {day}
-            </div>
-          ) : (
-            <div key={day} className={styles.dayNumber}>
-              {day}
-            </div>
-          ),
-        )}
+        {weekdays.map((day, index) => (
+          <div
+            key={day}
+            className={index < firstDayIndex ? styles.dayNumberMuted : styles.dayNumber}
+          >
+            {day}
+          </div>
+        ))}
       </div>
     );
   }
@@ -32,17 +29,14 @@ const Week: React.FC<WeekProps> = ({ weekdays, index, month }) => {
     const lastDayIndex = weekdays.findIndex((day) => day === month.totalDays);
     return (
       <div className={styles.week}>
-        {weekdays.map((day, index) =>
-          index > lastDayIndex ? (
-            <div key={day} className={`${styles.dayNumber} ${styles.muted}`}>
-              {day}
-            </div>
-          ) : (
-            <div key={day} className={styles.dayNumber}>
-              {day}
-            </div>
-          ),
-        )}
+        {weekdays.map((day, index) => (
+          <div
+            key={day}
+            className={index > lastDayIndex ? styles.dayNumberMuted : styles.dayNumber}
+          >
+            {day}
+          </div>
+        ))}
       </div>
     );
   }

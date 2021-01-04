@@ -20,23 +20,16 @@
       @apply border-0 border-r-2 border-blue-100 border-solid;
     }
 
+    &-muted {
+      @apply w-full text-center py-1;
+      @apply text-gray-300;
+      &:not(:last-child) {
+        @apply border-0 border-r-2 border-blue-100 border-solid;
+      }
+    }
+
     &:hover {
       @apply bg-blue-100;
     }
   }
-}
-
-/* .day { */
-/*   @apply w-full text-center py-1; */
-/*   &:not(:last-child) { */
-/*     @apply border-0 border-r-2 border-blue-100 border-solid; */
-/*   } */
-
-/*   &:hover { */
-/*     @apply bg-blue-100; */
-/*   } */
-/* } */
-
-.muted {
-  @apply text-gray-300;
 }
