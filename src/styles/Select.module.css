@@ -1,0 +1,74 @@
+.wrapper {
+  @apply relative select-none w-1/2 mx-auto my-2;
+}
+
+.select {
+  @apply relative flex flex-col shadow border-solid
+  border-blue-200 rounded-md border-t-2 border-b-2;
+}
+
+.trigger {
+  @apply relative bg-blue-100 flex items-center
+  text-2xl justify-between px-4 font-light h-12 leading-10
+  cursor-pointer border-solid border-blue-200 rounded-md;
+  border-width: 2px 0 2px 0;
+}
+
+.arrow {
+  @apply relative h-8 w-8 bg-blue-50;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    transition: all 0.5s;
+  }
+
+  &::before {
+    left: -5px;
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    left: 5px;
+    transform: rotate(-45deg);
+  }
+}
+
+.open {
+  .options {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  .arrow::before {
+    left: -5px;
+    transform: rotate(-45deg);
+  }
+
+  .arrow::after {
+    left: 5px;
+    transform: rotate(45deg);
+  }
+}
+
+.options {
+  @apply absolute block bg-blue-50 top-full left-0 right-0 border-2
+  border-solid border-blue-200 rounded border-t-0 h-48 overflow-y-scroll;
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.option {
+  @apply relative block px-4 leading-9 cursor-pointer bg-blue-50;
+  transition: all 0.5s;
+
+  &:hover {
+    @apply bg-blue-200;
+  }
+}
