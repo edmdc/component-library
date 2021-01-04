@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import styles from '../styles/Select.module.css';
+import Month from '../utilities/Month';
 
 interface SelectProps {
   optionValues: string[];
-  value: string;
-  setValue: (val: string) => void;
+  value: Month;
+  setValue: (val: Month) => void;
 }
 
 const Select: React.FC<SelectProps> = ({ optionValues, value, setValue }) => {
@@ -18,7 +19,7 @@ const Select: React.FC<SelectProps> = ({ optionValues, value, setValue }) => {
     >
       <div className={`${styles.select} ${isOpen ? styles.open : ''}`}>
         <div className={styles.trigger}>
-          <span>{value}</span>
+          <span>{value.name}</span>
           <div className={styles.arrow}></div>
         </div>
         <div className={styles.options}>
@@ -27,7 +28,7 @@ const Select: React.FC<SelectProps> = ({ optionValues, value, setValue }) => {
               key={index}
               className={styles.option}
               onClick={(): void => {
-                setValue(option);
+                setValue(new Month(option));
                 toggleView(!isOpen);
               }}
             >
